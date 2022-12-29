@@ -6,4 +6,4 @@ testsuite:
 cmds:
   - cmd: /src/mayhem/fuzz_gdb.py
     libfuzzer: true
-    timeout: 4
+    timeout: 10
