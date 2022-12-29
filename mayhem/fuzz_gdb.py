@@ -5,7 +5,7 @@ import sys
 import fuzz_helpers
 import random
 
-with atheris.instrument_imports():
+with atheris.instrument_imports(include=["pygdbmi"]):
     from pygdbmi import gdbmiparser
 
 def TestOneInput(data):
