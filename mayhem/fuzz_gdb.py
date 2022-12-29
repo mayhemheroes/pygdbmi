@@ -18,7 +18,7 @@ def TestOneInput(data):
             return -1
         raise
     except TypeError:
-        if random.random() > 0.99:
+        if random.random() > 0.9:
             raise
         return -1
 def main():
