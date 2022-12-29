@@ -9,6 +9,7 @@ with atheris.instrument_imports():
 
 def TestOneInput(data):
     fdp = fuzz_helpers.EnhancedFuzzedDataProvider(data)
+
     try:
         gdbmiparser.parse_response(fdp.ConsumeRandomString())
     except (TypeError, ValueError):
