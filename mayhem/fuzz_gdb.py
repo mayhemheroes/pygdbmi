@@ -14,7 +14,7 @@ def TestOneInput(data):
     try:
         gdbmiparser.parse_response(fdp.ConsumeRandomString())
     except ValueError as e:
-        if "Missing closing quote" in str(e):
+        if "Missing closing quote" in str(e) or "Invalid escape" in str(e):
             return -1
         raise
     except TypeError:
