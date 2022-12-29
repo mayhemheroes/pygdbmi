@@ -3,6 +3,7 @@
 import atheris
 import sys
 import fuzz_helpers
+import random
 
 with atheris.instrument_imports():
     from pygdbmi import gdbmiparser
@@ -12,7 +13,13 @@ def TestOneInput(data):
 
     try:
         gdbmiparser.parse_response(fdp.ConsumeRandomString())
-    except (TypeError, ValueError):
+    except ValueError as e:
+        if "Missing closing quote" in str(e):
+            return -1
+        raise
+    except TypeError:
+        if random.random() > 0.99:
+            raise
         return -1
 def main():
     atheris.Setup(sys.argv, TestOneInput)
