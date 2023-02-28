@@ -1,0 +1,9 @@
+project: pygdbmi
+target: fuzz-gdb
+testsuite:
+    - file://mayhem/testsuite
+
+cmds:
+  - cmd: /src/mayhem/fuzz_gdb.py
+    libfuzzer: true
+    timeout: 12
