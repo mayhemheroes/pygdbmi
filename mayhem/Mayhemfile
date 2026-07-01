@@ -1,0 +1,14 @@
+# Mayhem target: pygdbmi GDB/MI response parser (Atheris/libFuzzer harness).
+# The cmd binary is the compiled ELF launcher that drives mayhem/fuzz_gdb.py; Atheris
+# instruments the pygdbmi library so the run records coverage (edges).
+project: pygdbmi
+target: fuzz-gdb
+
+cmds:
+  - cmd: /mayhem/pygdbmi_fuzzer
+    libfuzzer: true
+
+# Seed corpus of representative GDB/MI responses.
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz-gdb/testsuite

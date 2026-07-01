@@ -1,0 +1,1 @@
+*stopped,reason="breakpoint-hit",disp="keep",bkptno="1",frame={addr="0x08048564",func="main",args=[]}
